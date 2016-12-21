@@ -1,0 +1,5 @@
+CREATE TABLE TRUMPTWEETER (
+      id  TEXT NOT NULL PRIMARY KEY UNIQUE,
+      bstweet    BLOB
+);
+

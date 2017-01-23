@@ -23,16 +23,20 @@ user = "realDonaldTrump"
 results = twitter.statuses.user_timeline(screen_name=user, count=7)
 
 for status in results:
-    #for item in status.keys():
-        #print item ,':', status[item]
-        #print "*************************************************"
-        #print "*************************************************"
     username = status['user']['screen_name']
     create_date = status["created_at"]
     tweeted =  status["text"].encode("ascii", "ignore")
-
-
     out.append(create_date + '| USER=' + username + ' | ' + tweeted + "\n\n")
+
+user = "POTUS"
+results = twitter.statuses.user_timeline(screen_name=user, count=7)
+
+for status in results:
+    username = status['user']['screen_name']
+    create_date = status["created_at"]
+    tweeted =  status["text"].encode("ascii", "ignore")
+    out.append(create_date + '| USER=' + username + ' | ' + tweeted + "\n\n")
+
 
 f = Files()
 f.write_file_append(outfile,out)
